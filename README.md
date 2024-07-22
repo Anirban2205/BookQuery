@@ -40,5 +40,7 @@ It may take some time to load initially but once it loads everything it will lau
 ### Cons:
 
 - It is currently programmed for only one book but can be scaled easily.
-- During the running of index_generator.py file the token limit of the API key might exceed if the book is longer. In that case, more than one api key can be used.
+- During the running of index_generator.py file the token limit of the API key might exceed if the book is longer. In that case, more than one API key can be used.
 - At the moment it creates the vector database locally but can be hosted on the cloud.
+
+**Working Sample-** [link](https://www.awesomescreenshot.com/video/29778570?key=84470fbae718c268f9b3b7aeb98d2a72)
