@@ -1,6 +1,6 @@
-# Long Context RAG
+# BookQuery
 
-This is a RAG application for long context content like Novels which are more than 300 pages.  
+This project implements a Retrieval-Augmented Generation (RAG) system with support for long contexts like novels using RAPTOR.  
 It uses RAPTOR to create clusters of chunks and summarize them repeatedly until a single chunk of text is formed.
 
 ## Project Files
