@@ -71,4 +71,4 @@ def vectorstore_pipeline():
 
 
 if __name__ == "__main__":
-    create_vectorstore()
+    vectorstore_pipeline()
