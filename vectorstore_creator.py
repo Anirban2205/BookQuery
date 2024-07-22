@@ -61,7 +61,7 @@ def vectorstore_pipeline():
     embedding_model = SentenceTransformer(model_name_or_path="all-MiniLM-L6-v2")
     
     pages_and_texts = add_embedding_to_texts(pages_and_texts, embedding_model)
-    # loaad the summaries generated from RAPTOR
+    # load the summaries generated from RAPTOR
     summaries = pd.read_csv(f"./{bookname}_summaries.csv")
     summary_pages = generate_summary_pages(summaries, embedding_model, pages_and_texts)
     pages_and_texts.extend(summary_pages)
