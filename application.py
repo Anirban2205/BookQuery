@@ -46,7 +46,7 @@ class LineListOutputParser(PydanticOutputParser):
         lines = text.strip().split("\n")
         return LineList(lines=lines)
 
-
+@st.cache_resource
 def load_hybrid_retriever():
     vector_db, book_chunks, file_path = vectorstore_pipeline()
     st.session_state.file_path = file_path
@@ -55,6 +55,7 @@ def load_hybrid_retriever():
     ens_ret = EnsembleRetriever(retrievers=[bm25_retriever, milvus_retriever], weights=[0.5, 0.5])
     return ens_ret
 
+@st.cache_data
 def load_query_prompt():
     template="""You are an AI language model assistant. Your task is to generate five
     different versions of the given user question to retrieve relevant documents from a vector
@@ -92,6 +93,7 @@ def reorder_documents(docs):
     reordered_docs = reordering.transform_documents(new_docs)
     return reordered_docs
 
+@st.cache_data
 def load_rag_prompt():
     from langchain import hub
     prompt = hub.pull("rlm/rag-prompt")
@@ -103,6 +105,7 @@ def output_parsing(text):
     op_lines = output_parser.parse(text)
     return op_lines.lines
 
+@st.cache_resource
 def load_utilities():
     llm = load_language_model()
     retriever = load_hybrid_retriever()
